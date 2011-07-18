@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# had to enable extglob
+shopt -s extglob
+
+#this uses globbing to match fiels ending in otf/OTF
+for i in +(*.otf|*.OTF)
+
+do fontforge -script /home/pat/bin/otf2ttf.conf $i
+
+done
