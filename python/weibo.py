@@ -8,8 +8,8 @@ from weibopy.api import API
 
 class Test(unittest.TestCase):
     
-    consumer_key= "1935104735"
-    consumer_secret ="c32c9e8eae461711b367132a38b44d79"
+    consumer_key= "****"
+    consumer_secret ="*****"
     
     def __init__(self):
       """ constructor """
@@ -58,5 +58,5 @@ if __name__ == '__main__':
         print 'Usage: %s [tweet]' % sys.argv[0]
         sys.exit(0)
     test = Test()
-    test.setToken("83d282816b58ea73a32b414396d1fa62", "1c39049b32813c26d96f5a5ab5ff48ef")
+    test.setToken("", "")
     test.post(sys.argv[1])
