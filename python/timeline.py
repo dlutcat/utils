@@ -6,6 +6,11 @@ import unittest
 from weibopy.auth import OAuthHandler, BasicAuthHandler
 from weibopy.api import API
 
+TARGETS = {
+    'l': '1253044873',
+    'p' : '1780135210'
+}
+
 class Test(unittest.TestCase):
     
     consumer_key= ""
@@ -97,9 +102,9 @@ class Test(unittest.TestCase):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        uid = ''
+        uid = TARGETS['l']
     else:
-        uid = sys.argv[1]
+        uid = TARGETS[sys.argv[1]]
     test = Test()
     test.setToken("", "")
     test.user_timeline(uid)
