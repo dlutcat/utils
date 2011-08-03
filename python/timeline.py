@@ -99,6 +99,24 @@ class Test(unittest.TestCase):
             text = self.getAtt("text")
             print "public_timeline---"+ str(mid) +":"+ text
 
+def parse_args(args):
+    try:
+        opts = getopt.getopt(args, 'lp', ['l', 'p'])[0]
+    except getopt.GetoptError, e:
+        print """
+            Usage: 
+                timeline -l --> leetuzi
+                timeline -p --> pangzi MTF
+        """
+
+    test = Test()
+    for opt, val in opts:
+        if opt in ('-l'):
+            print 'Tweets from leetuzi'
+            test.user_timeline(TARGETS['l'])
+        elif opt in ('-p'):
+            print 'Tweets from fucking Pangzi'
+            test.user_timeline(TARGETS['p'])
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
