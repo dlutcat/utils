@@ -2,33 +2,34 @@ import re
 import logging
 from colorama import Fore, Back, Style
 
-def getlogger():
-    logger = logging.getLogger('model.app')
-    handler = logging.StreamHandler()
-    handler.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s')
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    return logger
+# global LOG
+LOG = logging.getLogger('modelp')
+handler = logging.StreamHandler()
+formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s')
+handler.setFormatter(formatter)
+LOG.addHandler(handler)
+LOG.setLevel(logging.DEBUG)
 
 def debug(msg):
-    logger = getlogger()
-    logger.debug(colorize(msg))
+    LOG.debug(colorize(msg))
 
 def info(msg):
-    logger = getlogger()
-    logger.info(colorize(msg))
+    LOG.info(colorize(msg))
+
+def warning(msg):
+    LOG.warning(colorize(msg))
 
 def error(msg):
-    logger = getlogger()
-    logger.error(colorize(msg))
+    LOG.error(colorize(msg))
+
+def critical(msg):
+    LOG.critical(colorize(msg))
     
 def colorize(msg):
     params = {
         r'\-\-\->'        : '~FB~SB--->~FW',
         r'\*\*\*>'        : '~FB~SB~BB--->~BT~FW',
         r'\['             : '~SB~FB[~SN~FM',
-        r'AnonymousUser'  : '~FBAnonymousUser',
         r'\*\]'           : '~SN~FR*]',
         r'\]'             : '~FB~SB]~FW~SN',
     }
@@ -65,8 +66,14 @@ def colorize(msg):
         msg = msg % colors
     except (TypeError, ValueError, KeyError):
         pass
-    return msg
+
+    return msg + Fore.RESET
 
 if __name__ == '__main__':
-  error('~FR~SU[Model A]~ST: ~SBxxxxxxxx ~FG');
-  error('~FM[Model B]: ~SBxxxxxxxx ~FG');
+    print 
+    debug('~SU[~FRModel A]~ST: ~FMxxxxxxxx ~FT')
+    info('~SU[~FRModel A]~ST: ~FGxxxxxxxx ~FT')
+    warning('~SU[~FRModel A]~ST: ~FYxxxxxxxx ~FT')
+    error('~SU[~FRModel A]~ST: ~FRxxxxxxxx ~FT')
+    critical('~SU[~FRModel A]~ST: ~BW~FKxxxxxxxx ~BT')
+    print 
