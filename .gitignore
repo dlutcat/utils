@@ -1,0 +1,6 @@
+logs/*.log
+*.pyc
+*.bak
+.DS_Store
+data/
+**/*.xcuserstate
