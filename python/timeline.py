@@ -108,7 +108,6 @@ def parse_args(args):
                 timeline -l --> leetuzi
                 timeline -p --> pangzi MTF
         """
-
     test = Test()
     for opt, val in opts:
         if opt in ('-l'):
