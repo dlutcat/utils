@@ -1,0 +1,36 @@
+## -*- coding: utf-8 -*-
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>日志册</title>
+  </head>
+
+  <body>
+    <p style="font-size: 13px; color: green; margin-bottom: 10px;" > 整理：Pat</p>
+    <ul style="font: 16px;line-height: 20px">
+      % for it in items:
+        <li>
+          <span style="color: green; font-size: 12px;">&lt; ${it['time']} &gt;</span>
+          <a href="#${it['id']}">${it['title']}</a>
+        </li>
+      % endfor
+    </ul>
+
+    <ul style="font: 12px Arial,Helvetica,sans-serif; line-height: 20px">
+      % for it in items:
+        <li id="${it['id']}" style="margin-top: 10px; padding-bottom: 10px; border-bottom: 1px solid red">
+          <div style="margin: 5px 0px;" >
+            ${it['title']}
+          </div>
+          <div style="color: green">
+            发布时间：${it['time']}
+          </div>
+          <div>
+            ${it['content']}
+          </div>
+        </li>
+      % endfor
+    </ul>
+  </body>
+</html>
