@@ -8,7 +8,7 @@ from BeautifulSoup import BeautifulSoup
 
 def translate(word):
 
-    URL='http://dict.cn/ws.php'
+    URL='http://dict.cn/mini.php'
     params = {
         'q': word,
         'utf8': 'true'

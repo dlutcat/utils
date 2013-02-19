@@ -33,6 +33,7 @@ def get_node(node, name):
 class WordpressParser(object):
     """
     Core wordpress data parser.
+    
     in_file should be xml data exported from wordpress admin page.
     template is self-defined output html template based on Mako template engine.
     """
